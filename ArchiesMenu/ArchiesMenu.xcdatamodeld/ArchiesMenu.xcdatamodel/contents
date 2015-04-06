@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="6254" systemVersion="13F34" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="CategoryEntity" representedClassName="CategoryEntity" parentEntity="Entity" syncable="YES">
+        <relationship name="subcategories" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Subcategory" inverseName="category" inverseEntity="Subcategory" syncable="YES"/>
+        <userInfo>
+            <entry key="relatedByAttribute" value="id_entity"/>
+        </userInfo>
+    </entity>
+    <entity name="Entity" representedClassName="Entity" isAbstract="YES" syncable="YES">
+        <attribute name="created_at" optional="YES" attributeType="String" defaultValueString="no created_at" syncable="YES"/>
+        <attribute name="enabled" optional="YES" attributeType="String" defaultValueString="no enabled" syncable="YES"/>
+        <attribute name="id_entity" attributeType="String" syncable="YES">
+            <userInfo>
+                <entry key="mappedKeyName" value="id"/>
+            </userInfo>
+        </attribute>
+        <attribute name="img_path" optional="YES" attributeType="String" defaultValueString="no img_path" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" defaultValueString="no name" syncable="YES"/>
+        <attribute name="type_id" optional="YES" attributeType="String" defaultValueString="no type_id" syncable="YES"/>
+        <attribute name="updated_at" optional="YES" attributeType="String" defaultValueString="no updated_at" syncable="YES"/>
+    </entity>
+    <entity name="Item" representedClassName="Item" parentEntity="Entity" syncable="YES">
+        <attribute name="item_description" optional="YES" attributeType="String" defaultValueString="no description" syncable="YES">
+            <userInfo>
+                <entry key="mappedKeyName" value="description"/>
+            </userInfo>
+        </attribute>
+        <attribute name="left_img_path" optional="YES" attributeType="String" defaultValueString="no left_img_path" syncable="YES"/>
+        <attribute name="right_img_path" optional="YES" attributeType="String" defaultValueString="no right_img_path" syncable="YES"/>
+        <attribute name="subcategory_id" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="subcategory" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Subcategory" inverseName="items" inverseEntity="Subcategory" syncable="YES"/>
+        <userInfo>
+            <entry key="relatedByAttribute" value="id_entity"/>
+        </userInfo>
+    </entity>
+    <entity name="Subcategory" representedClassName="Subcategory" parentEntity="Entity" syncable="YES">
+        <attribute name="addition_enable" optional="YES" attributeType="String" defaultValueString="no addition_enable" syncable="YES"/>
+        <attribute name="category_id" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="category" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CategoryEntity" inverseName="subcategories" inverseEntity="CategoryEntity" syncable="YES"/>
+        <relationship name="items" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Item" inverseName="subcategory" inverseEntity="Item" syncable="YES"/>
+        <userInfo>
+            <entry key="relatedByAttribute" value="id_entity"/>
+        </userInfo>
+    </entity>
+    <elements>
+        <element name="CategoryEntity" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="Entity" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="Item" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="Subcategory" positionX="0" positionY="0" width="0" height="0"/>
+    </elements>
+</model>
